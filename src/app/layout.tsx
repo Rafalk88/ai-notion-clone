@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
-import Header from "@/components";
+import { Header, Sidebar } from "@/components";
 
 export const metadata: Metadata = {
   title: "AI notion clone",
@@ -19,8 +19,10 @@ export default function RootLayout({
         <body>
           <Header />
           <div className="flex min-h-screen">
-            {/* SIDEBAR */}
-            <div className="flex-1 p-4 bg-gray-100 scrollbar-hide">{children}</div>
+            <Sidebar />
+            <div className="flex-1 p-4 bg-gray-100 scrollbar-hide">
+              {children}
+            </div>
           </div>
         </body>
       </html>

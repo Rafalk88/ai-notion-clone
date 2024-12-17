@@ -14,7 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { NewDocumentButton } from "@/components";
+import { NewDocumentButton, SidebarOption } from "@/components";
 import { db } from "@/../firebase";
 
 interface RoomDocument extends DocumentData {
@@ -51,12 +51,11 @@ export default function Sidebar() {
             My Documents
           </h2>
           {groupedData?.owner.map(doc => (
-            <p key={doc.id}>{doc.roomId}</p>
-            //<SidebarOption
-            //  key={doc.id}
-            //  id={doc.id}
-            //  href={`/doc/${doc.id}`}
-            ///>
+            <SidebarOption
+              key={doc.id}
+              id={doc.id}
+              href={`/doc/${doc.id}`}
+            />
           ))}
         </>
       )}

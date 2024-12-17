@@ -8,6 +8,12 @@ import {
 } from "@/components/ui/sheet"
 import { MenuIcon } from "lucide-react";
 
+const menuOptions = (
+  <>
+  
+  </>
+)
+
 export default function Sidebar() {
   return (
     <aside className="p-2 md:p-5 bg-gray-200 relative">

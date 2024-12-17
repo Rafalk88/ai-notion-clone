@@ -31,7 +31,10 @@ type GroupedData = {
 
 export default function Sidebar() {
   const { user } = useUser();
-  const [groupedData, setGroupedData] = useState<GroupedData | null>(null);
+  const [groupedData, setGroupedData] = useState<GroupedData>({
+    owner: [],
+    editor: []
+  });
   const emailAddress = user?.emailAddresses[0]?.toString()
   const [data, loading, error] = useCollection(
     user && (
@@ -59,6 +62,21 @@ export default function Sidebar() {
           ))}
         </>
       )}
+
+      {groupedData?.editor.length > 0 ? (
+        <>
+          <h2 className="text-gray-500 font-semibold text-sm">
+            Shared with Me
+          </h2>
+          {groupedData?.editor.map(doc => (
+            <SidebarOption
+              key={doc.id}
+              id={doc.id}
+              href={`/doc/${doc.id}`}
+            />
+          ))}
+        </>
+      ) : null}
     </>
   ), [groupedData]);
 

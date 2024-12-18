@@ -35,8 +35,8 @@ export default function Sidebar() {
     owner: [],
     editor: []
   });
-  const emailAddress = user?.emailAddresses[0]?.toString()
-  const [data, loading, error] = useCollection(
+  const emailAddress = user?.emailAddresses[0]?.toString();
+  const [data] = useCollection(
     user && (
       query(collectionGroup(db, "rooms"), where('userId', '==', emailAddress))
     )

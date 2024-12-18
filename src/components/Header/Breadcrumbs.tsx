@@ -10,10 +10,15 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { useDocumentData } from "react-firebase-hooks/firestore";
+import { doc } from "firebase/firestore";
+import { db } from "@/../firebase";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
   const segments = pathname.split("/");
+  const id = segments[segments.length - 1];
+  const [data] = useDocumentData(doc(db, "documents", id));
 
   return (
     <Breadcrumb>
@@ -32,7 +37,7 @@ export default function Breadcrumbs() {
               <BreadcrumbSeparator />
               <BreadcrumbItem >
                 {(isLast) ? (
-                  <BreadcrumbPage>{segment}</BreadcrumbPage>
+                  <BreadcrumbPage>{data?.title}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink href={href}>{segment}</BreadcrumbLink>
                 )}

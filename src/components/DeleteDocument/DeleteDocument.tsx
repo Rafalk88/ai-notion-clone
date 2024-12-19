@@ -54,7 +54,7 @@ export default function DeleteDocument() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <Button asChild variant="outline" color="destructive">
+      <Button asChild variant="destructive">
         <DialogTrigger>
           Delete Account
         </DialogTrigger>

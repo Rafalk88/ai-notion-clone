@@ -1,5 +1,5 @@
 "use client"
-import { FormEvent, useCallback, useState, useTransition } from "react"
+import { FormEvent, useCallback, useState, useTransition } from "react";
 import { usePathname } from "next/navigation";
 
 import {
@@ -10,10 +10,10 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { toast } from "sonner"
+import { toast } from "sonner";
 import { inviteUserToDocument } from "@/../actions/actions";
 
 

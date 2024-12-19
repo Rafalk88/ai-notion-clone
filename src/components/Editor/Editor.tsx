@@ -7,6 +7,7 @@ import * as Y from "yjs";
 import { LiveblocksYjsProvider } from "@liveblocks/yjs";
 import { Button } from "../ui/button";
 import { BlockNote } from "./BlockNote"
+import { TranslateDocument } from "@/components";
 
 import { MoonIcon, SunIcon } from "lucide-react";
 
@@ -46,6 +47,7 @@ export default function Editor() {
     <div className="max-w-6xl mx-auto ">
       <div className="flex items-center gap-2 justify-end mb-10">
         {/* Translate doc AI */}
+        <TranslateDocument doc={doc} />
         {/* ChatDocument AI */}
         {/* Dark mode */}
         <Button

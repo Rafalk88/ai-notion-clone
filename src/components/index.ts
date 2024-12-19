@@ -12,3 +12,4 @@ export { DeleteDocument } from './DeleteDocument';
 export { InviteUser } from './InviteUser';
 export { ManageUsers } from './ManageUsers';
 export { Avatars } from './Avatars';
+export { TranslateDocument } from './TranslateDocument';

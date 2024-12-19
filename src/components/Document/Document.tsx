@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/../firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { DeleteDocument, Editor, InviteUser } from "@/components";
+import { Avatars, DeleteDocument, Editor, InviteUser, ManageUsers } from "@/components";
 import { useOwner } from "@/lib/hooks";
 import { toast } from "sonner";
 
@@ -58,7 +58,11 @@ export default function Document({ id }: { id: string }) {
       <div className="flex max-w-6xl mx-auto justify-between">
         <form className="flex flex-1 space-x-2">
           {/* update title... */}
-          <Input value={input} onChange={(e) => setInput(e.target.value)}/>
+          <Input 
+            className="text-gray-600"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
 
           <Button
             disabled={isUpdating}
@@ -80,13 +84,15 @@ export default function Document({ id }: { id: string }) {
           }
         </form>
       </div>
-      <div>
+      <div className="flex max-w-6xl mx-auto justify-between items-center my-5">
         {/* ManageUsers */}
+        <ManageUsers />
 
         {/* Avatars */}
+        <Avatars />
       </div>
 
-      <hr className="pb-10" />
+      <hr className="pb-10" role="separator" />
 
       {/* Collaborative Editor */}
       <Editor />

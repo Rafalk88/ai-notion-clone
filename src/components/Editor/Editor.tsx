@@ -1,11 +1,11 @@
 "use client"
+import { useMemo } from "react";
 import { useRoom } from "@liveblocks/react/suspense";
 import { useCallback, useEffect, useState } from "react";
 
 import * as Y from "yjs";
 import { LiveblocksYjsProvider } from "@liveblocks/yjs";
-import { Switch } from "../ui/switch";
-import { Label } from "../ui/label";
+import { Button } from "../ui/button";
 import { BlockNote } from "./BlockNote"
 
 import { MoonIcon, SunIcon } from "lucide-react";
@@ -17,7 +17,13 @@ export default function Editor() {
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = useCallback(() => {
     setDarkMode(prev => !prev)
-  }, [darkMode])
+  }, [])
+
+  const style = useMemo(() => (` hover:text-white ${
+    darkMode
+    ? "text-gray-300 bg-gray-700 hover:bg-gray-100 hover:text-gray-700"
+    : "text-gray-700 bg-gray-200 hover:bg-gray-300 hover:text-gray-700"
+  }`), [darkMode]);
 
   useEffect(() => {
     const yDoc = new Y.Doc();
@@ -42,17 +48,13 @@ export default function Editor() {
         {/* Translate doc AI */}
         {/* ChatDocument AI */}
         {/* Dark mode */}
-        <div className="flex gap-x-1">
-          <Switch 
-            id="dark-mode"
-            checked={darkMode}
-            onCheckedChange={toggleDarkMode}
-            role="button"
-          />
-          <Label htmlFor="dark-mode">
-            {darkMode ? (<SunIcon />) : (<MoonIcon />)}
-          </Label>
-        </div>
+        <Button
+          className={style}
+          onClick={toggleDarkMode}
+          variant="outline"
+        >
+          {darkMode ? <SunIcon /> : <MoonIcon />}
+        </Button>
       </div>
 
       {/* Block Note */}

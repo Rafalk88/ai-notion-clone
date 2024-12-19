@@ -27,7 +27,7 @@ export default function Avatars() {
             <TooltipProvider key={`${user?.id}-${idx}`}>
               <Tooltip>
                 <TooltipTrigger>
-                  <Avatar className="border-2 hover:z-50">
+                  <Avatar className="border-2 border-white hover:z-50">
                     <AvatarImage src={user?.info.avatar} />
                     <AvatarFallback>{user?.info.fullname}</AvatarFallback>
                   </Avatar>

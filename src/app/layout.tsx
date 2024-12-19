@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
 import { Header, Sidebar } from "@/components";
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "AI notion clone",
@@ -24,6 +25,7 @@ export default function RootLayout({
               {children}
             </div>
           </div>
+          <Toaster position="bottom-right" />
         </body>
       </html>
     </ClerkProvider>

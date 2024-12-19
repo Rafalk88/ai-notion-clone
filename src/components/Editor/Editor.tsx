@@ -6,10 +6,9 @@ import * as Y from "yjs";
 import { LiveblocksYjsProvider } from "@liveblocks/yjs";
 import { Switch } from "../ui/switch";
 import { Label } from "../ui/label";
+import { BlockNote } from "./BlockNote"
 
 import { MoonIcon, SunIcon } from "lucide-react";
-
-
 
 export default function Editor() {
   const room = useRoom();
@@ -20,7 +19,7 @@ export default function Editor() {
     setDarkMode(prev => !prev)
   }, [darkMode])
 
-  {/*useEffect(() => {
+  useEffect(() => {
     const yDoc = new Y.Doc();
     const yProvider = new LiveblocksYjsProvider(room, yDoc);
 
@@ -35,7 +34,7 @@ export default function Editor() {
 
   if(!doc || !provider) {
     return null;
-  }*/}
+  }
 
   return (
     <div className="max-w-6xl mx-auto ">
@@ -57,7 +56,7 @@ export default function Editor() {
       </div>
 
       {/* Block Note */}
-      {/*<BlockNote doc={doc} provider={provider} darkMode={darkMode} />*/}
+      <BlockNote doc={doc} provider={provider} darkMode={darkMode} />
     </div>
-  )
+  );
 }

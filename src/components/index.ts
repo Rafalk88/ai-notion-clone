@@ -8,3 +8,4 @@ export { LoadingSpinner } from './LoadingSpinner';
 export { LiveCursorProvider } from './LiveCursorProvider';
 export { FollowPointer } from './FollowPointer';
 export { Editor } from './Editor';
+export { DeleteDocument } from './DeleteDocument';

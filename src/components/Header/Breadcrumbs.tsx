@@ -18,7 +18,8 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
   const segments = pathname.split("/");
   const id = segments[segments.length - 1];
-  const [data] = useDocumentData(doc(db, "documents", id));
+  const docRef = id ? doc(db, "documents", id) : null;
+  const [data] = useDocumentData(docRef);
 
   return (
     <Breadcrumb>
@@ -29,7 +30,7 @@ export default function Breadcrumbs() {
         {segments.map((segment, idx) => {
           if (!segment) return null;
 
-          const href = `${process.env.SERVER_URL}/${segments.slice(0, idx + 1).join("/")}`;
+          const href = `${process.env.NEXT_PUBLIC_SERVER_URL}/${segments.slice(0, idx + 1).join("/")}`;
           const isLast = idx === segments.length - 1;
 
           return (

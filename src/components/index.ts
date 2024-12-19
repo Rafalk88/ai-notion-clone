@@ -7,3 +7,4 @@ export { RoomProvider } from './RoomProvider';
 export { LoadingSpinner } from './LoadingSpinner';
 export { LiveCursorProvider } from './LiveCursorProvider';
 export { FollowPointer } from './FollowPointer';
+export { Editor } from './Editor';

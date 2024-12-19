@@ -60,3 +60,27 @@ export async function deleteDocument(roomId: string) {
     return { success: false };
   }
 }
+
+export async function inviteUserToDocument(roomId: string, email: string) {
+  const { userId, redirectToSignIn } = await auth()
+
+  if (!userId) return redirectToSignIn();
+  try {
+    await adminDb
+      .collection("users")
+      .doc(email)
+      .collection("rooms")
+      .doc(roomId)
+      .set({
+        userId: email,
+        role: 'editor',
+        createdAt: new Date(),
+        roomId
+      });
+
+    return { success: true }
+  } catch (error) {
+    console.error("Error on deleting document", error)
+    return { success: false };
+  }
+}

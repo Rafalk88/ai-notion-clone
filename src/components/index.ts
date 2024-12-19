@@ -9,3 +9,4 @@ export { LiveCursorProvider } from './LiveCursorProvider';
 export { FollowPointer } from './FollowPointer';
 export { Editor } from './Editor';
 export { DeleteDocument } from './DeleteDocument';
+export { InviteUser } from './InviteUser';

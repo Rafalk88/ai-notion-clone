@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/../firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { DeleteDocument, Editor } from "@/components";
+import { DeleteDocument, Editor, InviteUser } from "@/components";
 import { useOwner } from "@/lib/hooks";
 import { toast } from "sonner";
 
@@ -73,6 +73,7 @@ export default function Document({ id }: { id: string }) {
             isOwner && (
               <>
                 {/* isOwner && InviteUser, DeleteDocument */}
+                <InviteUser />
                 <DeleteDocument />
               </>
             )

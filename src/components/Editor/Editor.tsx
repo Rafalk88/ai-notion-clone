@@ -20,7 +20,7 @@ export default function Editor() {
     setDarkMode(prev => !prev)
   }, [])
 
-  const style = useMemo(() => (` hover:text-white ${
+  const style = useMemo(() => (`hover:text-white ${
     darkMode
     ? "text-gray-300 bg-gray-700 hover:bg-gray-100 hover:text-gray-700"
     : "text-gray-700 bg-gray-200 hover:bg-gray-300 hover:text-gray-700"

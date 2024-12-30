@@ -33,7 +33,7 @@ export default function ChatToDocument({ doc }: { doc: Y.Doc }) {
 
     startTransition(async () => {
       const documentData = doc.get('document-store').toJSON();
-      const extractedData = arrayToText(extractContent(documentData), "^");
+      const extractedData = arrayToText(extractContent(documentData), " ");
 
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/chatToDocument`, {
@@ -46,20 +46,31 @@ export default function ChatToDocument({ doc }: { doc: Y.Doc }) {
             question: input,
           }),
         }
-      )
+      );
 
-      if (res.ok) {
-        const { message } = await res.json();
+      try {
+        const response = await res.json();
 
-        setInput('');
-        setSummary(message);
+        //! ONLY FOR LEARNING PURPOSE I DON"T HAVE AI PRICING PLAN SO I GET 404 or 429 STATUS
+        //! ERRORS. WHEN YOU GET AI PLAN DELETE THIS IF STATEMENT
+        if (response.status === 404 || response.status === 429) {
+          setSummary('This is test mode without AI plan. You don\'t have permission to use this feature.');
+        } else {
+          setSummary(response.message);
+        }
+        //! END OF TEST MODE
+
+        //! UNCOMMENT THIS LINE IF YOU DELETE TEST MODE
+        //setSummary(response.message);
         toast("Question asked successfully");
-      } else {
-        setInput('');
+      } catch (error) {
+        console.error("Failed to ask question", error);
         toast("Asking failed.", {
           description: "There was a problem with your request.",
         });
-      }
+      } finally{
+        setInput('');
+      };
     });
   }, [doc, input]);
 

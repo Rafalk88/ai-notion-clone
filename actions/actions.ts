@@ -3,6 +3,7 @@
 import { auth } from "@clerk/nextjs/server"
 import { adminDb } from "../firebase-admin";
 import { liveblocks } from "@/lib/liveblocks";
+import nodemailer from "nodemailer";
 
 export async function createNewDocument() {
   const { sessionClaims, userId, redirectToSignIn } = await auth()
@@ -66,6 +67,7 @@ export async function inviteUserToDocument(roomId: string, email: string) {
 
   if (!userId) return redirectToSignIn();
   try {
+    // ADD USER TO DB
     await adminDb
       .collection("users")
       .doc(email)
@@ -78,9 +80,27 @@ export async function inviteUserToDocument(roomId: string, email: string) {
         roomId
       });
 
+    const transporter = nodemailer.createTransport({
+      service: "gmail", // CHANGE TO YOU EMAIL PROVIDER
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.NODEMAILER_USERNAME,
+        pass: process.env.NODEMAILER_PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: '"Zaproszenie do dokumentu" <twojemail@gmail.com>',
+      subject: "Zaproszenie do współpracy nad dokumentem",
+      text: `Cześć! Zostałeś zaproszony do współpracy nad dokumentem o identyfikatorze ${roomId}.`,
+      html: `<p>Cześć!</p><p>Zostałeś zaproszony do współpracy nad dokumentem.</p><p>Identyfikator dokumentu: <strong>${roomId}</strong></p>`,
+    };
+    await transporter.sendMail(mailOptions);
+
     return { success: true }
   } catch (error) {
-    console.error("Error on deleting document", error)
+    console.error("Error on invite to document", error)
     return { success: false };
   }
 }

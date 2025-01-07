@@ -11,6 +11,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+
+import { Logo } from "./Logo"
 import { cn } from "@/lib/utils";
 
 import { BotIcon, BookText, BookOpen, Target } from "lucide-react";
@@ -36,29 +38,32 @@ export default function Header() {
   const { user } = useUser();
   return (
     <header className="flex items-center justify-between p-5">
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[300px] px-1 py-2">
-                {
-                  navMenuContent.map(link => (
-                    <ListItem
-                      key={link.href}
-                      title={link.title}
-                      href={link.href}
-                      beforeIcon={link.beforeIcon}
-                    >
-                      {link.description}
-                    </ListItem>
-                  ))
-                }
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      <div className="flex items-center gap-6">
+        <Logo />
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[300px] px-1 py-2">
+                  {
+                    navMenuContent.map(link => (
+                      <ListItem
+                        key={link.href}
+                        title={link.title}
+                        href={link.href}
+                        beforeIcon={link.beforeIcon}
+                      >
+                        {link.description}
+                      </ListItem>
+                    ))
+                  }
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
 
       {user && (
         <>
@@ -69,6 +74,7 @@ export default function Header() {
           <Breadcrumbs />
         </>
       )}
+
       <div>
         <SignedOut>
           <SignInButton>

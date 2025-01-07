@@ -7,17 +7,17 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 import { Logo } from "./Logo"
-import { cn } from "@/lib/utils";
+import { ListItem } from "./ListItem";
+import { OutlinedIcon } from "./OutlinedIcon";
 
 import { BotIcon, BookText, BookOpen, Target } from "lucide-react";
 
-interface NavMenyComponent {
+export interface NavMenuComponent {
   title: string;
   description: string;
   href: string;
@@ -25,9 +25,7 @@ interface NavMenyComponent {
   afterIcon?: React.ReactNode;
 };
 
-type CustomProps = Pick<NavMenyComponent, "beforeIcon" | "afterIcon">;
-
-const navMenuContent: NavMenyComponent[] = [
+const navMenuContent: NavMenuComponent[] = [
   { title: "AI", description : "Integrated AI assistant", href:"/", beforeIcon: <OutlinedIcon><BotIcon /></OutlinedIcon> },
   { title: "Docs", description: "Simple & Powerful", href:"/docs", beforeIcon: <OutlinedIcon><BookText /></OutlinedIcon> },
   { title: "Wikis", description: "Centralize Your knowledge", href:"/wikis", beforeIcon: <OutlinedIcon><BookOpen /></OutlinedIcon> },
@@ -89,51 +87,3 @@ export default function Header() {
     </header>
   )
 }
-
-function OutlinedIcon(props: React.HTMLAttributes<HTMLDivElement>) {
-  const { className, children, ...rest } = props
-
-  return (
-  <div
-    className={cn(
-      "select-none p-1 no-underline rounded-md border-1 bg-white",
-      className
-    )}
-    aria-roledescription="Icon container"
-    {...rest}
-  >
-    {children}
-  </div>
-  )
-}
-OutlinedIcon.displayName = "OutlinedIcon"
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & CustomProps
->(({ className, title, children, beforeIcon, afterIcon, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "flex items-center p-2 gap-2 select-none rounded-md leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          {beforeIcon}
-          <div>
-            <h3 className="text-sm font-medium leading-none">{title}</h3>
-            <p className="text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          </div>
-          {afterIcon}
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"

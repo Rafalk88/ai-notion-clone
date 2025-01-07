@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import navMenuData from "./navMenuData.json"
 
 import { Logo } from "./Logo"
 import { ListItem } from "./ListItem";
@@ -17,20 +18,15 @@ import { OutlinedIcon } from "./OutlinedIcon";
 
 import { BotIcon, BookText, BookOpen, Target } from "lucide-react";
 
-export interface NavMenuComponent {
-  title: string;
-  description: string;
-  href: string;
-  beforeIcon?: React.ReactNode;
-  afterIcon?: React.ReactNode;
+const mapIcon = (iconName: string): React.ReactNode => {
+  const icons: Record<string, React.ReactNode> = {
+    BotIcon: <OutlinedIcon><BotIcon /></OutlinedIcon>,
+    BookText: <OutlinedIcon><BookText /></OutlinedIcon>,
+    BookOpen: <OutlinedIcon><BookOpen /></OutlinedIcon>,
+    Target: <OutlinedIcon><Target /></OutlinedIcon>,
+  };
+  return icons[iconName] || null;
 };
-
-const navMenuContent: NavMenuComponent[] = [
-  { title: "AI", description : "Integrated AI assistant", href:"/", beforeIcon: <OutlinedIcon><BotIcon /></OutlinedIcon> },
-  { title: "Docs", description: "Simple & Powerful", href:"/docs", beforeIcon: <OutlinedIcon><BookText /></OutlinedIcon> },
-  { title: "Wikis", description: "Centralize Your knowledge", href:"/wikis", beforeIcon: <OutlinedIcon><BookOpen /></OutlinedIcon> },
-  { title: "Projects", description: "For every team or sizes", href:"/projects", beforeIcon: <OutlinedIcon><Target /></OutlinedIcon> },
-]
 
 export default function Header() {
   const { user } = useUser();
@@ -40,25 +36,33 @@ export default function Header() {
         <Logo />
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[300px] px-1 py-2">
-                  {
-                    navMenuContent.map(link => (
-                      <ListItem
-                        key={link.href}
-                        title={link.title}
-                        href={link.href}
-                        beforeIcon={link.beforeIcon}
-                      >
-                        {link.description}
-                      </ListItem>
-                    ))
-                  }
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+            {navMenuData.navMenu.map((menu) => {
+              const subMenu = navMenuData.navMenuItems.find(
+                (item) => item.parentId === menu.id
+              );
+
+              return (
+                <NavigationMenuItem key={menu.id}>
+                  <NavigationMenuTrigger>{menu.title}</NavigationMenuTrigger>
+                  {subMenu && (
+                    <NavigationMenuContent>
+                      <ul className="grid w-[300px] px-1 py-2">
+                        {subMenu.content.map((link) => (
+                          <ListItem
+                            key={link.id}
+                            title={link.title}
+                            href={link.href}
+                            beforeIcon={mapIcon(link.beforeIcon)}
+                          >
+                            {link.description}
+                          </ListItem>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  )}
+                </NavigationMenuItem>
+              );
+            })}
           </NavigationMenuList>
         </NavigationMenu>
       </div>

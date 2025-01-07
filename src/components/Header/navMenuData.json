@@ -1,0 +1,44 @@
+{
+  "navMenu": [
+    { "id": 1, "title": "Product" },
+    { "id": 2, "title": "Teams" },
+    { "id": 3, "title": "Individuals" },
+    { "id": 4, "title": "Download" },
+    { "id": 5, "title": "Pricing" }
+  ],
+  "navMenuItems": [
+    {
+      "parentId": 1,
+      "content": [
+        {
+          "id": 101,
+          "title": "AI",
+          "description": "Integrated AI assistant",
+          "href": "/",
+          "beforeIcon": "OutlinedIcon_BotIcon"
+        },
+        {
+          "id": 102,
+          "title": "Docs",
+          "description": "Simple & Powerful",
+          "href": "/docs",
+          "beforeIcon": "OutlinedIcon_BookText"
+        },
+        {
+          "id": 103,
+          "title": "Wikis",
+          "description": "Centralize Your knowledge",
+          "href": "/wikis",
+          "beforeIcon": "OutlinedIcon_BookOpen"
+        },
+        {
+          "id": 104,
+          "title": "Projects",
+          "description": "For every team or sizes",
+          "href": "/projects",
+          "beforeIcon": "OutlinedIcon_Target"
+        }
+      ]
+    }
+  ]
+}

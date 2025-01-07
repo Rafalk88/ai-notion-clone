@@ -3,9 +3,11 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import type { NavMenuComponent } from "./Header"
 
-type CustomProps = Pick<NavMenuComponent, "beforeIcon" | "afterIcon">;
+type CustomProps = {
+  beforeIcon?: React.ReactNode;
+  afterIcon?: React.ReactNode;
+};
 
 export const ListItem = React.forwardRef<
   React.ElementRef<"a">,

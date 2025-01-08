@@ -37,6 +37,48 @@
           "description": "For every team or sizes",
           "href": "/projects",
           "beforeIcon": "Target"
+        },
+        {
+          "id": 105,
+          "title": "Calendar",
+          "description": "Time and work, together",
+          "href": "/",
+          "beforeIcon": "Calendar1"
+        },
+        {
+          "id": 106,
+          "title": "Mail",
+          "description": "Email that works for you",
+          "href": "/",
+          "beforeIcon": "Mail"
+        },
+        {
+          "id": 107,
+          "title": "Sites",
+          "description": "Publish anything, fast",
+          "href": "/",
+          "beforeIcon": "Globe"
+        },
+        {
+          "id": 108,
+          "title": "Forms",
+          "description": "Capture responses and requests",
+          "href": "/",
+          "beforeIcon": "TextCursorInput"
+        },
+        {
+          "id": 109,
+          "title": "Marketplace",
+          "description": "Templates to get you started",
+          "href": "/",
+          "beforeIcon": "Store"
+        },
+        {
+          "id": 110,
+          "title": "Integrations",
+          "description": "Connect your tools to Notion-Clone",
+          "href": "/",
+          "beforeIcon": "Workflow"
         }
       ]
     }

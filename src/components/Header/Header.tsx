@@ -17,7 +17,18 @@ import { Logo } from "./Logo"
 import { ListItem } from "./ListItem";
 import { OutlinedIcon } from "./OutlinedIcon";
 
-import { BotIcon, BookText, BookOpen, Target } from "lucide-react";
+import {
+  BotIcon,
+  BookText,
+  BookOpen,
+  Target, 
+  Calendar1,
+  Mail,
+  Globe,
+  TextCursorInput,
+  Store,
+  Workflow
+} from "lucide-react";
 
 const mapIcon = (iconName: string): React.ReactNode => {
   const icons: Record<string, React.ReactNode> = {
@@ -25,6 +36,12 @@ const mapIcon = (iconName: string): React.ReactNode => {
     BookText: <OutlinedIcon><BookText /></OutlinedIcon>,
     BookOpen: <OutlinedIcon><BookOpen /></OutlinedIcon>,
     Target: <OutlinedIcon><Target /></OutlinedIcon>,
+    Calendar1: <OutlinedIcon><Calendar1 /></OutlinedIcon>,
+    Mail: <OutlinedIcon><Mail /></OutlinedIcon>,
+    Globe: <OutlinedIcon><Globe /></OutlinedIcon>,
+    TextCursorInput: <OutlinedIcon><TextCursorInput /></OutlinedIcon>,
+    Store: <OutlinedIcon><Store /></OutlinedIcon>,
+    Workflow: <OutlinedIcon><Workflow /></OutlinedIcon>,
   };
 
   if (!icons[iconName]) {

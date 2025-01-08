@@ -60,6 +60,7 @@ export default function Header() {
                             title={link.title}
                             href={link.href}
                             beforeIcon={mapIcon(link.beforeIcon)}
+                            isComingSoon={true}
                           >
                             {link.description}
                           </ListItem>

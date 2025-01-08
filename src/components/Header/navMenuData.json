@@ -15,28 +15,28 @@
           "title": "AI",
           "description": "Integrated AI assistant",
           "href": "/",
-          "beforeIcon": "OutlinedIcon_BotIcon"
+          "beforeIcon": "BotIcon"
         },
         {
           "id": 102,
           "title": "Docs",
           "description": "Simple & Powerful",
           "href": "/docs",
-          "beforeIcon": "OutlinedIcon_BookText"
+          "beforeIcon": "BookText"
         },
         {
           "id": 103,
           "title": "Wikis",
           "description": "Centralize Your knowledge",
           "href": "/wikis",
-          "beforeIcon": "OutlinedIcon_BookOpen"
+          "beforeIcon": "BookOpen"
         },
         {
           "id": 104,
           "title": "Projects",
           "description": "For every team or sizes",
           "href": "/projects",
-          "beforeIcon": "OutlinedIcon_Target"
+          "beforeIcon": "Target"
         }
       ]
     }

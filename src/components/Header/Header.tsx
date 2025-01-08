@@ -9,6 +9,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuViewport
 } from "@/components/ui/navigation-menu";
 import navMenuData from "./navMenuData.json"
 
@@ -25,7 +26,13 @@ const mapIcon = (iconName: string): React.ReactNode => {
     BookOpen: <OutlinedIcon><BookOpen /></OutlinedIcon>,
     Target: <OutlinedIcon><Target /></OutlinedIcon>,
   };
-  return icons[iconName] || null;
+
+  if (!icons[iconName]) {
+    console.warn(`Icon "${iconName}" not found in lucide-react.`);
+    return null;
+  };
+
+  return icons[iconName];
 };
 
 export default function Header() {
@@ -64,6 +71,7 @@ export default function Header() {
               );
             })}
           </NavigationMenuList>
+          <NavigationMenuViewport className="rounded-sm border-gray-100 shadow-sm" />
         </NavigationMenu>
       </div>
 

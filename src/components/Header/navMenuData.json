@@ -14,71 +14,116 @@
           "id": 101,
           "title": "AI",
           "description": "Integrated AI assistant",
-          "href": "/",
+          "href": "/product/ai",
           "beforeIcon": "BotIcon"
         },
         {
           "id": 102,
           "title": "Docs",
           "description": "Simple & Powerful",
-          "href": "/docs",
+          "href": "/product/docs",
           "beforeIcon": "BookText"
         },
         {
           "id": 103,
           "title": "Wikis",
           "description": "Centralize Your knowledge",
-          "href": "/wikis",
+          "href": "/product/wikis",
           "beforeIcon": "BookOpen"
         },
         {
           "id": 104,
           "title": "Projects",
           "description": "For every team or sizes",
-          "href": "/projects",
+          "href": "/product/projects",
           "beforeIcon": "Target"
         },
         {
           "id": 105,
           "title": "Calendar",
           "description": "Time and work, together",
-          "href": "/",
+          "href": "/product/calendar",
           "beforeIcon": "Calendar1"
         },
         {
           "id": 106,
           "title": "Mail",
           "description": "Email that works for you",
-          "href": "/",
+          "href": "/product/mail",
           "beforeIcon": "Mail"
         },
         {
           "id": 107,
           "title": "Sites",
           "description": "Publish anything, fast",
-          "href": "/",
+          "href": "/product/sites",
           "beforeIcon": "Globe"
         },
         {
           "id": 108,
           "title": "Forms",
           "description": "Capture responses and requests",
-          "href": "/",
+          "href": "/product/forms",
           "beforeIcon": "TextCursorInput"
         },
         {
           "id": 109,
           "title": "Marketplace",
           "description": "Templates to get you started",
-          "href": "/",
+          "href": "/product/marketplace",
           "beforeIcon": "Store"
         },
         {
           "id": 110,
           "title": "Integrations",
           "description": "Connect your tools to Notion-Clone",
-          "href": "/",
+          "href": "/product/integrations",
           "beforeIcon": "Workflow"
+        }
+      ]
+    },
+    {
+      "parentId": 2,
+      "content": [
+        {
+          "id": 201,
+          "title": "Product",
+          "href": "/teams/product"
+        },
+        {
+          "id": 202,
+          "title": "Engineering",
+          "href": "/teams/engineering"
+        },
+        {
+          "id": 203,
+          "title": "Design",
+          "href": "/teams/design"
+        },
+        {
+          "id": 204,
+          "title": "Marketing",
+          "href": "/teams/marketing"
+        },
+        {
+          "id": 205,
+          "title": "IT",
+          "href": "/teams/it"
+        },
+        {
+          "id": 206,
+          "title": "Startups",
+          "href": "/teams/startups"
+        },
+        {
+          "id": 207,
+          "title": "Enterprise",
+          "href": "/teams/enterprise"
+        },
+        {
+          "id": 208,
+          "title": "Customer stories",
+          "href": "/teams/customer-stories"
         }
       ]
     }

@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import Link from "next/link";
 import { SignedOut, SignedIn, SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import Breadcrumbs from "./Breadcrumbs";
 import {
@@ -9,7 +10,9 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport
+  NavigationMenuViewport,
+  NavigationMenuLink,
+  navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import navMenuData from "./navMenuData.json"
 
@@ -64,6 +67,18 @@ export default function Header() {
               const subMenu = navMenuData.navMenuItems.find(
                 (item) => item.parentId === menu.id
               );
+
+              if (!subMenu) {
+                return (
+                  <NavigationMenuItem key={menu.id}>
+                    <Link href="/" legacyBehavior passHref>
+                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        {menu.title}
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                )
+              }
 
               return (
                 <NavigationMenuItem key={menu.id}>

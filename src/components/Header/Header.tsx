@@ -113,7 +113,7 @@ export default function Header() {
               );
             })}
           </NavigationMenuList>
-          <NavigationMenuViewport className="rounded-sm border-gray-100 shadow-sm" />
+          <NavigationMenuViewport className="rounded-sm" />
         </NavigationMenu>
       </div>
 

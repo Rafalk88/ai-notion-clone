@@ -1,0 +1,1 @@
+export { NoDocuments } from './NoDocuments'

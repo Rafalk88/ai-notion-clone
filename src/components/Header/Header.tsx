@@ -1,8 +1,9 @@
 "use client"
 
-import React from "react";
+import React, { useCallback } from "react";
 import Link from "next/link";
-import { SignedOut, SignedIn, SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { SignedOut, SignedIn, SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import Breadcrumbs from "./Breadcrumbs";
 import {
   NavigationMenu,
@@ -14,6 +15,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import navMenuData from "./navMenuData.json"
 
 import { Logo } from "./Logo"
@@ -57,6 +59,13 @@ const mapIcon = (iconName: string): React.ReactNode => {
 
 export default function Header() {
   const { user } = useUser();
+  const [isPending, startTransition] = React.useTransition();
+  const router = useRouter();
+
+  const handleRequestADemo = useCallback(() => {
+    router.push("/")
+  }, [router])
+
   return (
     <header className="flex items-center justify-between p-5">
       <div className="flex items-center gap-6">
@@ -118,11 +127,37 @@ export default function Header() {
         </>
       )}
 
-      <div>
+      <div className="flex gap-3 items-center">
         <SignedOut>
+            <Button
+              className="rounded-sm"
+              disabled={isPending}
+              variant="ghost"
+              size="sm"
+              onClick={handleRequestADemo}
+            >
+              { isPending ? "Requesting..." : "Request a demo"}
+            </Button>
+          <div className="w-[1px] h-[1.5rem] bg-gray-200" role="separator" />
           <SignInButton>
-            <button>Log In</button>
+            <Button
+              className="rounded-sm"
+              disabled={isPending}
+              variant="ghost"
+              size="sm"
+            >
+              { isPending ? "Logging..." : "Log In"}
+            </Button>
           </SignInButton>
+          <SignUpButton>
+            <Button
+              className="rounded-sm"
+              disabled={isPending}
+              size="sm"
+            >
+              { isPending ? "Signing..." : "Get Notion-clone free"}
+            </Button>
+          </SignUpButton>
         </SignedOut>
 
         <SignedIn>

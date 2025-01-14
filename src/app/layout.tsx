@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
-import { Header, Sidebar } from "@/components";
+import { Header } from "@/components";
 import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
@@ -20,8 +20,7 @@ export default function RootLayout({
         <body>
           <Header />
           <div className="flex min-h-screen">
-            <Sidebar />
-            <div className="flex-1 p-4 bg-gray-100 scrollbar-hide">
+            <div className="w-full md:max-w-[1200px] mx-auto pt-6 scrollbar-hide">
               {children}
             </div>
           </div>

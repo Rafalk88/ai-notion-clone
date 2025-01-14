@@ -26,7 +26,7 @@ export default function Home() {
             <SignedOut>
               <SignUpButton>
                 <Button
-                  className="bg-[#0582FF]"
+                  className="bg-[#0582FF] hover:bg-[#0468cc]"
                   disabled={isPending}
                   size="sm"
                 >

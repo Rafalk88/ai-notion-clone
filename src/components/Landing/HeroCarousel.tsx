@@ -67,14 +67,18 @@ export function HeroCarousel() {
     setCurrent(index);
   }, [api]);
 
-  const carouselItem = (
-    <Image
-      src="/assets/menusample.png"
-      alt="menusample image"
-      width={900}
-      height={900}
-    />
-  );
+  const carouselItems = [
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+    { src: "/assets/menusample.png", alt: "menusample image" },
+  ];
 
   return (
     <section className="pt-10 flex flex-col items-center gap-4">
@@ -85,18 +89,24 @@ export function HeroCarousel() {
             delay: 5000,
           }),
         ]}
+        opts={{
+          align: "start",
+        }}
+        className="w-full max-w-[1200px] mx-auto"
       >
         <CarouselContent>
-          <CarouselItem>1</CarouselItem>
-          <CarouselItem>2</CarouselItem>
-          <CarouselItem>3</CarouselItem>
-          <CarouselItem>4</CarouselItem>
-          <CarouselItem>5</CarouselItem>
-          <CarouselItem>6</CarouselItem>
-          <CarouselItem>7</CarouselItem>
-          <CarouselItem>8</CarouselItem>
-          <CarouselItem>9</CarouselItem>
-          <CarouselItem>10</CarouselItem>
+          {
+            carouselItems.map((item, index) => (
+                <CarouselItem key={index}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={1200}
+                    height={800}
+                  />
+                </CarouselItem>
+            ))
+          }
         </CarouselContent>
       </Carousel>
 

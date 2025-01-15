@@ -15,7 +15,7 @@
           "title": "AI",
           "description": "Integrated AI assistant",
           "href": "/product/ai",
-          "beforeIcon": "BotIcon"
+          "beforeIcon": "Bot"
         },
         {
           "id": 102,

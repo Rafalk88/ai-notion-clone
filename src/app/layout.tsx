@@ -9,6 +9,7 @@ import { Analytics } from "@/components";
 
 import { Header } from "@/components";
 import { Toaster } from "@/components/ui/sonner";
+import { env } from "../../env.mjs";
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +49,7 @@ export default function RootLayout({
             {children}
           </div>
           <Toaster position="bottom-right" />
-          <GoogleTagManager gtmId={process.env.GAID!} />
+          <GoogleTagManager gtmId={env.NEXT_PUBLIC_GAID} />
           <Analytics />
         </body>
       </html>

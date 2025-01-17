@@ -1,6 +1,7 @@
 import { Liveblocks } from "@liveblocks/node";
+import { env } from "../../env.mjs";
 
-const key = process.env.LIVEBLOCKS_SECRET_KEY
+const key = env.LIVEBLOCKS_SECRET_KEY
 
 if (!key) {
   throw new Error("LIVEBLOCKS_SECRET_KEY is not set");

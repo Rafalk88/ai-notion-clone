@@ -17,6 +17,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { toast } from "sonner";
 import { inviteUserToDocument } from "@/../actions/actions";
+import { env } from "../../../env.mjs";
 
 
 export default function ChatToDocument({ doc }: { doc: Y.Doc }) {
@@ -36,7 +37,7 @@ export default function ChatToDocument({ doc }: { doc: Y.Doc }) {
       const extractedData = arrayToText(extractContent(documentData), " ");
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/chatToDocument`, {
+        `${env.NEXT_PUBLIC_BASE_URL}/chatToDocument`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

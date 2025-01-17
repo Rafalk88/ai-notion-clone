@@ -24,6 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { BotIcon, LanguagesIcon } from "lucide-react";
+import { env } from "../../../env.mjs";
 //import { useDraggable } from "@/lib/hooks";
 
 type Language =
@@ -67,7 +68,7 @@ export function TranslateDocument({ doc }: { doc: Y.Doc}) {
       const extractedData = arrayToText(extractContent(documentData), "^");
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/translateDocument`, {
+        `${env.NEXT_PUBLIC_BASE_URL}/translateDocument`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

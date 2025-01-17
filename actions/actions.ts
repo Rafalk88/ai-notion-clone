@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server"
 import { adminDb } from "../firebase-admin";
 import { liveblocks } from "@/lib/liveblocks";
 import nodemailer from "nodemailer";
+import { env } from "./../env.mjs"
 
 export async function createNewDocument() {
   const { sessionClaims, userId, redirectToSignIn } = await auth()
@@ -85,8 +86,8 @@ export async function inviteUserToDocument(roomId: string, email: string) {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.NODEMAILER_USERNAME,
-        pass: process.env.NODEMAILER_PASSWORD,
+        user: env.NODEMAILER_USERNAME,
+        pass: env.NODEMAILER_PASSWORD,
       },
     });
 

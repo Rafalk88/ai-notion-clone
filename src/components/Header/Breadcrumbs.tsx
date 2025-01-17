@@ -13,6 +13,7 @@ import {
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { doc } from "firebase/firestore";
 import { db } from "@/../firebase";
+import { env } from "../../../env.mjs";
 
 export default function Breadcrumbs() {
   const pathname = usePathname();
@@ -30,7 +31,7 @@ export default function Breadcrumbs() {
         {segments.map((segment, idx) => {
           if (!segment) return null;
 
-          const href = `${process.env.NEXT_PUBLIC_SERVER_URL}/${segments.slice(0, idx + 1).join("/")}`;
+          const href = `${env.NEXT_PUBLIC_SERVER_URL}/${segments.slice(0, idx + 1).join("/")}`;
           const isLast = idx === segments.length - 1;
 
           return (

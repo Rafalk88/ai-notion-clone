@@ -15,3 +15,4 @@ export { Avatars } from './Avatars';
 export { TranslateDocument } from './TranslateDocument';
 export { ChatToDocument } from './ChatToDocument';
 export { Landing } from './Landing';
+export { Analytics } from './analytics';

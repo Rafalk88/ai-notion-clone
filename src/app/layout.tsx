@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 
 import { type Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@/components";
 
 import { Header } from "@/components";
 import { Toaster } from "@/components/ui/sonner";
@@ -46,6 +48,8 @@ export default function RootLayout({
             {children}
           </div>
           <Toaster position="bottom-right" />
+          <GoogleTagManager gtmId={process.env.GAID!} />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>

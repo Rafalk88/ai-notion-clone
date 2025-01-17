@@ -33,9 +33,9 @@
     ]
   },
   "include": [
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.js",
     "**/*.jsx",
     "jest.setup.ts",
     ".next/types/**/*.ts"
